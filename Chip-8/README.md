@@ -15,22 +15,12 @@ Avant de lancer le projet, assurez-vous d'avoir installé les éléments suivant
 - Golang
 - Ebiten : github.com/hajimehoshi/ebiten/v2
 
-## Installation
-
-1. Clonez le dépôt GitHub :
-
-''bash
-git clone https://ytrack.learn.ynov.com/git/ymiyad/Chip-8.git
-
-## Naviguez vers le répertoire du projet :
-
-''bash
-cd Chip-8
-
 ## Compilez et exécutez le programme :
 
-''bash
+Une fois dans le répertoire :
+```
 go run main.go
+```
 
 ***Chargement d'un jeu :***
 
