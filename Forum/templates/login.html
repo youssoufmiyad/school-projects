@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum - login</title>
+
+    <style>
+ 
+body {
+  background-image: url('https://images.opencollective.com/discordhooks/1f8f486/background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: Arial, sans-serif;
+  height: 983px;
+}
+
+body {
+    opacity: 0;
+  }
+
+  body.fade-in {
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+  }
+
+header {
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+nav li {
+  margin-right: 30px;
+  font-weight: 600;
+}
+
+nav li:last-child {
+  margin-right: 0;
+}
+
+nav a {
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+nav a:hover {
+  color: white;
+}
+
+header img {
+  height: 50px;
+  width: auto;
+}
+
+.form-container {
+  width: 500px;
+  margin: 0 auto;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  margin-top:   150px;
+}
+
+h2 {
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-input {
+  margin-bottom: 15px;
+}
+
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 95%;
+}
+
+.form-checkbox {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+button[type="submit"] {
+  background-color: #7289da;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #5b6eae;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="http://localhost:8080/"><img src="https://www.logo.wine/a/logo/Room_8_Studio/Room_8_Studio-Logo.wine.svg" alt="Logo"></a>
+      </header>
+      
+      <div class="form-container">
+        <h2>Connexion</h2>
+        {{if .IsLogged}}<h3>LOGGED</h3>{{end}}
+        {{if not .IsLogged}}<form role="form" action="" method="POST">
+          <div class="form-input">
+            <label for="username/mail">Nom d'utilisateur / e-mail</label>
+            <input type="text" name="username/mail">
+          </div>
+
+          <div class="form-input">
+            <label for="loginPassword">Mot de passe</label>
+            <input type="password" name="loginPassword"></input>
+          </div>
+          <button id="myBtn3" type="submit">Se connecter</button>
+        </form>
+      </div>{{end}}
+      
+      
+
+</body>
+<script>
+    // Ajoute la classe 'fade-in' au corps de la page après un délai de 0,5 seconde
+    setTimeout(function() {
+      document.querySelector('body').classList.add('fade-in');
+    }, 500);
+  </script>
+
+<script>
+  document.getElementById("myBtn3").addEventListener("click", myFunction);
+  function myFunction() {
+    window.location.href="http://localhost:8080/room";
+  }
+</script>
+  
+
+</html>

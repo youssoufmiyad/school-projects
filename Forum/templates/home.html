@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/home.css">
+    <script src="/js/home.js"></script>
+    <title>Forum - home</title>
+</head>
+
+<style>
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 100px); /* hauteur maximale du contenu, en tenant compte de la hauteur de l'en-tête */
+  }
+  
+  .title {
+      color: #fff;
+    font-size: 5em;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    position: relative;
+    animation: fade-slide 3s ease-in-out infinite; /* animation de fondu et de défilement en continu pendant 3 secondes */
+  }
+  
+  @keyframes fade-slide {
+    0% {
+      opacity: 1;
+      transform: translateX(-10%);
+    }
+    50% {
+      opacity: 0.5;
+      transform: translateX(10%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(-10%);
+    }
+  }
+  
+  .title::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -10%;
+    width: 120%;
+    height: 100%;
+    background-color: #2196F3;
+    opacity: 0.2;
+    z-index: -1;
+    animation: slide 5s ease-in-out infinite alternate;
+  }
+  
+  @keyframes slide {
+    0% { transform: translateX(-10%); }
+    100% { transform: translateX(10%); }
+  }
+  
+  .description {
+      width: 75%;
+    font-size: 1.5em;
+    text-align: center;
+    margin-top: 20px;
+    color: #888;
+  }
+  
+  @media screen and (max-width: 960px){
+      .description {
+          width: 80%;
+      } 
+  }
+
+</style>
+
+<body>
+    <header>
+     
+
+      <nav>
+        <ul>
+          {{if not .IsLogged}}<li><a href="http://localhost:8080/register">Sign up</a></li>{{end}}
+          {{if not .IsLogged}}<li><a href="http://localhost:8080/login">Log in</a></li>{{end}}
+          {{if .IsLogged}}<li> <form role="form" action="" method="POST"><button type="submit" action="http://localhost:8080/" method="post">Disconnect</button></form></li>{{end}}
+          <li><a href="http://localhost:8080/room">room</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="container">
+        <h1 class="title">FOROOM</h1>
+        <p class="description">Welcome to FOROOM, the perfect place for discussions and conversations. Create your room, invite your friends to join you, and start debating, discussing, or exchanging various ideas!</p>
+    </div>
+      
+
+      
+  </body>
+  
+  <script>
+    // Ajoute la classe 'fade-in' au corps de la page après un délai de 0,5 seconde
+    setTimeout(function() {
+      document.querySelector('body').classList.add('fade-in');
+    }, 500);
+  </script>
+  
+  <script src="/js/home.js"></script>
+
+</html>

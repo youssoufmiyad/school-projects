@@ -1,0 +1,106 @@
+/* Styles CSS */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  header {
+    background-color: #f2f2f2;
+    padding: 20px;
+    display: flex; /* Ajout de la propriété flex */
+    align-items: center; /* Centrer les éléments verticalement */
+    justify-content: space-between; /* Alignement horizontal des éléments */
+  }
+  
+  header img {
+    height: 50px;
+    width: auto;
+  }
+  
+  /* Filtre */
+  
+  .searchbar input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 200px;
+    margin-right: 10px;
+  }
+  
+/* Styles CSS */
+
+/* Post */
+.posts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px;
+    margin-top: 20px;
+    padding: 30px;
+  }
+  
+  .post {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 100px; /* Ajout de la hauteur souhaitée */
+    width: 300px; /* Ajout de la largeur souhaitée */
+  }
+  
+  
+  .post-user {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .post-text {
+    font-size: 16px;
+  }
+  
+  .post-button {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #7289da;
+    color: #ffffff;
+    border: none;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .post-button:hover {
+    background-color: #5c6fb1;
+  }
+  
+
+/* BOTTOM */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: auto; /* Positionnement en bas de la page */
+    margin-bottom: 30px;
+  }
+  
+  .btnroom {
+    padding: 10px;
+    background-color: #7289da;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btnroom:hover {
+    background-color: #5c6fb1;
+  }

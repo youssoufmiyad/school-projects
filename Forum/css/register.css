@@ -1,0 +1,67 @@
+body {
+  background-image: url('https://images.opencollective.com/discordhooks/1f8f486/background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: Arial, sans-serif;
+  height: 983px;
+}
+body {
+    opacity: 0;
+  }
+  body.fade-in {
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+  }
+header {
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+}
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+nav li {
+  margin-right: 30px;
+  font-weight: 600;
+}
+nav li:last-child {
+  margin-right: 0;
+}
+nav a {
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+nav a:hover {
+  color: white;
+}
+header img {
+  height: 50px;
+  width: auto;
+}
+.form-container {
+  width: 500px;
+  margin: 0 auto;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  margin-top:   150px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+.form-input {
+  margin-bottom: 15px;
+}
+.form-checkbox {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}

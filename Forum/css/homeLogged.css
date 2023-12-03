@@ -1,0 +1,125 @@
+
+body {
+    background-image: url('https://images4.alphacoders.com/909/thumb-1920-909912.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+  }
+  
+  
+    body {
+      opacity: 0;
+    }
+  
+    body.fade-in {
+      opacity: 1;
+      transition: opacity 1s ease-in-out;
+    }
+  
+  
+  header {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+  }
+  
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  nav li {
+    margin-right: 30px;
+    font-weight: 600;
+  }
+  
+  nav li:last-child {
+    margin-right: 0;
+  }
+  
+  nav a {
+    color: #888;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  nav a:hover {
+    color: #2196F3;
+  }
+  
+  
+  
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 100px); /* hauteur maximale du contenu, en tenant compte de la hauteur de l'en-tête */
+  }
+  
+  .title {
+      color: #fff;
+    font-size: 5em;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    position: relative;
+    animation: fade-slide 3s ease-in-out infinite; /* animation de fondu et de défilement en continu pendant 3 secondes */
+  }
+  
+  @keyframes fade-slide {
+    0% {
+      opacity: 1;
+      transform: translateX(-10%);
+    }
+    50% {
+      opacity: 0.5;
+      transform: translateX(10%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(-10%);
+    }
+  }
+  
+  .title::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -10%;
+    width: 120%;
+    height: 100%;
+    background-color: #2196F3;
+    opacity: 0.2;
+    z-index: -1;
+    animation: slide 5s ease-in-out infinite alternate;
+  }
+  
+  @keyframes slide {
+    0% { transform: translateX(-10%); }
+    100% { transform: translateX(10%); }
+  }
+  
+  .description {
+      width: 75%;
+    font-size: 1.5em;
+    text-align: center;
+    margin-top: 20px;
+    color: #888;
+  }
+  
+  @media screen and (max-width: 960px){
+      .description {
+          width: 80%;
+      } 
+  }
+  

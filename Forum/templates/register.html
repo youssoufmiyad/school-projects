@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum - register</title>
+    <link rel="stylesheet" href="/css/register.css">
+
+    
+</head>
+
+<body>
+
+    <header>
+        <a href="http://localhost:8080/"><img src="https://www.logo.wine/a/logo/Room_8_Studio/Room_8_Studio-Logo.wine.svg" alt="Logo"></a>
+      </header>
+      
+      <div class="form-container">
+        <h2>Inscription</h2>
+        {{if .IsSignedIn}}<h3>INSCRIT</h3>{{else}}
+        <form role="form" action="" method="POST">
+          <div class="form-input">
+            <label for="username">Nom d'utilisateur</label>
+            <input type="text" name="username" required>
+          </div>
+          <div class="form-input">
+            <label for="email">Adresse e-mail</label>
+            <input type="email" name="email" required></input>
+          </div>
+          <div class="form-input">
+            <label for="password">Mot de passe</label>
+            <input type="password" name="password" required></input>
+          </div>
+          <div class="form-input">
+            <label for="confirm-password">Confirmer le mot de passe</label>
+            <input type="password" id="confirm-password" name="confirm-password" required></input>
+          </div>
+          <div class="form-checkbox">
+            <input type="checkbox" id="terms" name="terms" required></input>
+            <label for="terms">J'ai lu et accepté les <a href="#">conditions d'utilisation</a></label>
+          </div>
+          <button id="myBtn" type="submit">S'inscrire</button>
+        </form>{{end}}
+      </div>
+      
+      
+
+</body>
+<script>
+    // Ajoute la classe 'fade-in' au corps de la page après un délai de 0,5 seconde
+    setTimeout(function() {
+      document.querySelector('body').classList.add('fade-in');
+    }, 500);
+  </script>
+  
+  <script>
+    document.getElementById("myBtn").addEventListener("click", myFunction);
+    function myFunction() {
+      window.location.href="http://localhost:8080/";
+    }
+  </script>
+
+
+</html>

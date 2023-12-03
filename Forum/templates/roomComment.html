@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room</title>
+    <style>
+ 
+body {
+  background-image: url('https://images.opencollective.com/discordhooks/1f8f486/background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: Arial, sans-serif;
+  height: 983px;
+}
+body {
+    opacity: 0;
+  }
+  body.fade-in {
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+  }
+header {
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+}
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+nav li {
+  margin-right: 30px;
+  font-weight: 600;
+}
+nav li:last-child {
+  margin-right: 0;
+}
+nav a {
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+nav a:hover {
+  color: white;
+}
+header img {
+  height: 50px;
+  width: auto;
+}
+img {
+  height: 50px;
+  width: 50px;
+}
+.form-container {
+  width: 500px;
+  margin: 0 auto;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  margin-top: 500px;
+}
+h2 {
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+.form-input {
+  margin-bottom: 15px;
+}
+input[type="text"]{
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 85%;
+}
+.form-checkbox {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+button[type="submit"] {
+  background-color: #7289da;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+button[type="submit"]:hover {
+  background-color: #5b6eae;
+}
+.post {
+  width: 800px;
+  margin: 0 auto;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  margin-top: 50px;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <a href="http://localhost:8080/"><img src="https://www.logo.wine/a/logo/Room_8_Studio/Room_8_Studio-Logo.wine.svg" alt="Logo"></a>
+      </header>
+      <h3>Nombre de likes : {{.PostLikes}}</h3>
+      {{$id := index $.ID 0}}
+      
+
+      User: {{.PostUser}}<div class="post">Text: {{.PostText}} </div>
+        <form role=form method="POST" action="" autocomplete="off">
+          {{if .IsLogged}}<button type="submit" onclick="change()" action="http://localhost:8080/" method="post"value="{{.PostIsLiked}}" id = "like" name="like">is liked : {{.PostIsLiked}}</button>{{end}}
+
+        </form>
+          {{range $i, $a := .Texts}}
+            {{if eq (index $.IDs $i) $id}}User: {{index $.User $i}}<div class="post">Text: {{$a}}  </div>{{end}}
+          {{end}}
+      
+        {{if .IsLogged}}<div class="form-container">
+        <form role=form method="POST" action="" autocomplete="off">
+          <div class="form-input">
+            <input type="text" size="70" placeholder="Ecrivez votre commentaire" name="commentaire"></input>
+            <button type="submit" action="http://localhost:8080/" method="post">Submit</button>
+          </div>
+        </form>
+      </div>{{end}}
+</body>
+<script>
+    //Ajoute la classe 'fade-in' au corps de la page après un délai de 0,5 seconde
+    setTimeout(function() {
+      document.querySelector('body').classList.add('fade-in');
+    }, 500);
+  </script>
+<script>
+  function change()
+{
+    var elem = document.getElementById("like");
+    if (elem.value=="false") elem.value = "true";
+    else elem.value = "false";
+}
+</script>
+  
+</html>

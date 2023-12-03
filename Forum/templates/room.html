@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/js/room.js"></script>
+    <link rel="stylesheet" href="/css/room.css">
+    <title>Foroom - fil post</title>
+</head>
+<body>
+    <header>
+        <a href="http://localhost:8080/"><img src="https://www.logo.wine/a/logo/Room_8_Studio/Room_8_Studio-Logo.wine.svg" alt="Logo"></a>
+        <div class="searchbar">
+            <form role="form" method="POST" action="" autocomplete="off">
+                <input type="text" placeholder="#" name="searchbar">filtrer par {{.Filter}}</input>
+            </form>
+        </div>
+    </header>
+    
+    <div class="posts-container">
+        {{range $i, $a := .Texts}}
+            {{$f := index $.Filters $i}}
+            {{$g := index $.Filter 0}}
+            {{if eq $g ""}}
+                <form action="http://localhost:8080/comment" role="form">
+                    <div class="post">
+                        <div class="post-user"> {{index $.Users $i}}</div>
+                        <button type="submit" class="post-button" value={{index $.ID $i}} name="commentRedirect">Text: {{$a}}   {{if eq $f ""}}{{else}}#{{$f}}{{end}}</button>
+                    </div>
+                </form>
+            {{else if eq $f $g}}
+                <form action="http://localhost:8080/comment" role="form" method="POST">
+                    <div class="post">
+                        <div class="post-user">User: {{index $.Users $i}}</div>
+                        <button type="submit" class="post-button" value={{index $.ID $i}} name="commentRedirect">Text: {{$a}}  #{{$f}}</button>
+                    </div>
+                </form>
+            {{end}}
+        {{end}}
+    </div>
+        
+    {{if .IsLogged}}
+        <div class="form-container">
+            <form role="form" method="POST" action="" autocomplete="off">
+                <div class="form-input">
+                    <input type="text" size="70" placeholder="Ecrivez votre post" name="poste" style="padding: 10px;">
+                    <input type="text" size="30" placeholder="#" name="filtre" style="padding: 8px;">
+                    <button type="submit" class="btnroom">Poster! 🌐</button>
+                </div>
+            </form>
+        </div>
+    {{end}}
+</body>
+</html>
